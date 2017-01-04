@@ -1,16 +1,7 @@
 version: "2"
 
 services:
-    service-a:
-        build: ./service-a
-        ports:
-            - "8080:80"
-        depends_on:
-            - service-b
-            - mycache
-        labels:
-            com.microsoft.acs.dcos.marathon.healthcheck.path: '/'
-
+    
     service-b:
         build: ./service-b
         expose:
@@ -18,7 +9,3 @@ services:
         labels:
             com.microsoft.acs.dcos.marathon.healthcheck.path: '/'
 
-    mycache:
-        image: redis:alpine
-        expose:
-            - "6379"
